@@ -2,6 +2,7 @@ import React from 'react'
 import ToggleTheme from '../../Components/toggleTheme'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../utils/firebase-config'
+import { useloginstate } from '../../utils/hook'
 const signout = async () => {
   try {
     await signOut(auth)
@@ -11,6 +12,7 @@ const signout = async () => {
 }
 
 const Header: React.FC = () => {
+  const user = useloginstate()
   return (
     <header className='flex h-20 w-full items-center justify-around border-b-2 border-black bg-light-primary bg-transparent dark:border-white'>
       <h1 className='ml-16 mr-auto text-2xl dark:text-white'>
@@ -18,12 +20,15 @@ const Header: React.FC = () => {
       </h1>
       <div className='ml-auto mr-12 flex items-center gap-3'>
         <ToggleTheme />
-        <button onClick={signout} className='btn-primary'>
+        <button
+          onClick={signout}
+          className={`btn-primary ${user ? 'block' : 'hidden'}`}
+        >
           Sign out
         </button>
         <img
           src={auth.currentUser?.photoURL || ''}
-          className='w-14 rounded-full'
+          className={`w-14 rounded-full ${user ? 'block' : 'hidden'}`}
           alt=''
         />
       </div>

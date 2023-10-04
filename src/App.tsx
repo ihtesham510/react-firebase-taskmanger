@@ -1,10 +1,9 @@
 import Auth from './Main/Login/Auth'
 import Main from './Main/Main'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from './utils/firebase-config'
 import Header from './Main/Header/Header'
+import { useloginstate } from './utils/hook'
 export default function App() {
-  const [user] = useAuthState(auth)
+  const user = useloginstate()
   return (
     <>
       <Header />
