@@ -18,7 +18,7 @@ const Task: React.FC<prop> = ({ children, status }) => {
         type='text'
         value={children}
         className={` bg-transparent  ${status
-            ? 'line-through dark:text-gray-700'
+            ? 'line-through text-gray-700'
             : 'dark:text-white'
           }  w-[300px] outline-none`}
           disabled={status}

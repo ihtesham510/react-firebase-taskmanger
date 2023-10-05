@@ -2,7 +2,7 @@ import React from 'react'
 import ToggleTheme from '../../Components/toggleTheme'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../utils/firebase-config'
-import { useloginstate } from '../../utils/hook'
+import { useloginstate } from '../../utils/useloginstate'
 const signout = async () => {
   try {
     await signOut(auth)
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
         </button>
         <img
           src={auth.currentUser?.photoURL || ''}
-          className={`w-14 rounded-full ${user ? 'block' : 'hidden'}`}
+          className={`w-12 rounded-full ${user ? 'block' : 'hidden'}`}
           alt=''
         />
       </div>
