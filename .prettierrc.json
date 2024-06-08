@@ -5,8 +5,5 @@
   "semi": false,
   "parser": "typescript",
   "jsxSingleQuote": true,
-  "singleQuote": true,
-  "plugins": [
-    "prettier-plugin-tailwindcss"
-  ]
+  "singleQuote": true
 }
